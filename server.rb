@@ -26,4 +26,4 @@ def build_http_response(response)
     response
 end
 
-run_server
+run_server if "server.rb" == $0

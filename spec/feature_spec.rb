@@ -1,5 +1,3 @@
-require_relative '../server.rb'
-
 feature "Server functions" do
 
   scenario "Displays 'Hello World!'" do

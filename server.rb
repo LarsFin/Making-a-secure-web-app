@@ -1,7 +1,7 @@
 require 'socket'
 
-def run_server
-  server = TCPServer.new(3000)
+def run_server(port = 3000)
+  server = TCPServer.new(port)
   p 'in server'
   while(true) do
     Thread.start(server.accept) do |socket|

@@ -30,7 +30,7 @@ class Server
   end
 
   def find_resource resource
-    "Sign up" if resource == "/users/new"
+    File.read("public/sign-in.html") if resource == "/users/new"
   end
 
   def get_resource_from request

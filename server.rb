@@ -25,5 +25,4 @@ def build_http_response(response)
     "\r\n" +
     response
 end
-
 run_server

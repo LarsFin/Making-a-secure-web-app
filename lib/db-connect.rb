@@ -1,9 +1,5 @@
 require 'pg'
 
-def create_table name
-
-end
-
 def insert table, command
 
 end
@@ -15,8 +11,8 @@ def access_database command, &block
   end
 end
 
-def create_db
+def create_db(name = 'test')
   conn = PG.connect(dbname: 'postgres')
-  conn.exec("CREATE DATABASE hackapp_test")
+  conn.exec("CREATE DATABASE hackapp_#{name}")
 	access_database("create table users(id serial, username varchar(255));")
 end

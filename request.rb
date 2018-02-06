@@ -6,8 +6,11 @@ class Request
     @text_arr = text.split("\r\n")
     @hash = Hash.new()
     @params = Hash.new()
+  end
+
+  def generate_hashes
     create_hash()
-    create_params_hash()
+    create_params_hash() if get_method == 'POST'
   end
 
   def get_method()

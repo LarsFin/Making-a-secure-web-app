@@ -1,11 +1,13 @@
 class Request
-  attr_reader :text_arr, :hash
+  attr_reader :text_arr, :hash, :params
 
   def initialize text
     p text
     @text_arr = text.split("\r\n")
     @hash = Hash.new()
+    @params = Hash.new()
     create_hash()
+    create_params_hash()
   end
 
   def get_method()
@@ -15,17 +17,31 @@ class Request
   def get_location()
     return hash()["location"]
   end
+
+  def get_param(param)
+    return params[param]
+  end
+
   private
 
   def create_hash()
     hash()['method'], @hash['location'] = text_arr.shift().split(" ")
     text_arr().each do |item|
       key, value = item.split(":")
-      if !key.nil? && !value.nil?
+      if key && value
         hash()[key] = value.strip()
       else
         hash()["body"] = key
       end
     end
   end
+
+  def create_params_hash()
+    param_arr = hash()["body"].split("&")
+    param_arr.each { |item|
+      key, value = item.split("=")
+      params[key] = value
+    }
+  end
+
 end

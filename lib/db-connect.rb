@@ -15,3 +15,7 @@ def access_database command, &block
   end
 end
 
+def migrate
+	access_database("create table users(id serial, username varchar(255));")
+end	
+

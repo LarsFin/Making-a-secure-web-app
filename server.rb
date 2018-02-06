@@ -1,4 +1,7 @@
 require 'socket'
+require_relative './request'
+require 'pp'
+
 
 class Server
   def initialize(port = 3000)
@@ -8,8 +11,9 @@ class Server
   def run
     while(true) do
       Thread.start(@server.accept) do |socket|
-        request = get_request(socket)
-        resource = get_resource_from request
+        request = Request.new(socket.recv(1024))
+        pp(request)
+        resource = request.get_location()
         http_response = formulate_response(resource)
         socket.print http_response
         socket.close
@@ -18,9 +22,6 @@ class Server
   end
 
   private
-  def get_request(socket)
-    p socket.gets.chomp
-  end
 
   def build_http_response(response)
     "HTTP/1.1 200 OK\r\n" +
@@ -31,10 +32,6 @@ class Server
 
   def find_resource resource
     File.read("public/sign-in.html") if resource == "/users/new"
-  end
-
-  def get_resource_from request
-    p request.split(" ")[1]
   end
 
   def formulate_response(resource)

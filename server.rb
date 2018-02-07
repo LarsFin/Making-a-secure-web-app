@@ -26,8 +26,10 @@ class Server
 
   private
   def post_users(request)
+    p "in post users"
     p request.params
-    access_database("insert into users(username) values ('#{request.get_param('username')}')")
+    DBConnect.access_database("insert into users(username) values ('#{request.get_param('username')}')")
+    p "posted"
   end
 
   def build_http_response(response)

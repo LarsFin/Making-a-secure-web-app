@@ -1,3 +1,3 @@
 require_relative 'lib/db-connect'
 
-create_db
+DBConnect.create_db

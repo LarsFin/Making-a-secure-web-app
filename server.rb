@@ -2,10 +2,15 @@ require 'socket'
 require_relative './request'
 require 'pp'
 require_relative 'lib/db-connect'
+require_relative './middleware'
 
 class Server
-  def initialize(port = 3000)
+
+  attr_reader :middleware
+
+  def initialize(port = 3000, app_class)
     @server = TCPServer.new(port)
+    @middleware = Middleware.new(app_class)
   end
 
   def run
@@ -13,11 +18,12 @@ class Server
       Thread.start(@server.accept) do |socket|
         request = Request.new(socket.recv(4096))
         request.generate_hashes
-        #pp(request)
-        resource = request.get_location
-        post_users(request) if request.get_method == 'POST' && request.get_location
+        # middleware.build_controller_name(request)
+        # #pp(request)
+        # resource = request.get_location
+        # post_users(request) if request.get_method == 'POST' && request.get_location
         # http_response = formulate_response(resource)
-        socket.print formulate_response(resource)
+        socket.print build_http_response(middleware.build_controller_name(request))
         socket.close
       end
     end
@@ -62,4 +68,4 @@ class Server
   end
 end
 
-Server.new.run if "server.rb" == $0
+Server.new(App).run if "server.rb" == $0

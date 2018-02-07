@@ -3,7 +3,7 @@ require 'capybara/rspec'
 require 'db-connect'
 require_relative '../server.rb'
 
-Thread.new{ Server.new(3001).run }
+Thread.new{ Server.new(3001, App).run }
 
 Capybara.default_driver = :selenium
 Capybara.app_host = 'http://localhost:3001'

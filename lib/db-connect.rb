@@ -1,15 +1,16 @@
 require 'pg'
 
-
-def access_database command, &block
-  connection = PG.connect(dbname: 'hackapp_test')
-  connection.exec(command) do |result|
-  	yield(result) if block
+class DBConnect
+  def self.access_database command, &block
+    connection = PG.connect(dbname: 'hackapp_test')
+    connection.exec(command) do |result|
+    	yield(result) if block
+    end
   end
-end
 
-def create_db(name = 'test')
-  conn = PG.connect(dbname: 'postgres')
-  conn.exec("CREATE DATABASE hackapp_#{name}")
-	access_database("create table users(id serial, username varchar(255));")
+  def self.create_db(name = 'test')
+    conn = PG.connect(dbname: 'postgres')
+    conn.exec("CREATE DATABASE hackapp_#{name}")
+  	access_database("create table users(id serial, username varchar(255));")
+  end
 end

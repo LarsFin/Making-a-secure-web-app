@@ -2,7 +2,6 @@ class Request
   attr_reader :text_arr, :hash, :params
 
   def initialize text
-    p text
     @text_arr = text.split("\r\n")
     @hash = Hash.new()
     @params = Hash.new()

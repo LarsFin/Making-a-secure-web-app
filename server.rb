@@ -20,7 +20,7 @@ class Server
         request = Request.new(socket.recv(4096))
         request.generate_hashes
         # middleware.build_controller_name(request)
-        # #pp(request)
+        pp(request)
         # resource = request.get_location
         # post_users(request) if request.get_method == 'POST' && request.get_location
         # http_response = formulate_response(resource)

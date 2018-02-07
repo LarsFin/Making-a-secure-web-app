@@ -5,8 +5,8 @@ class User
   attr_reader :id
   attr_accessor :username
   def initialize(params)
-    @id = params[:id]
-    @username = params[:username]
+    @id = params["id"]
+    @username = params["username"]
   end
-  
+
 end

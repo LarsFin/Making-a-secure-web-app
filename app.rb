@@ -1,3 +1,5 @@
+require_relative './lib/user'
+
 class App
 
   def get_users request
@@ -9,7 +11,8 @@ class App
   end
 
   def post_users request
-    #assign variables
+    p User.create("username" => request.get_param("username"))
+    get_users(request)
   end
 
 end

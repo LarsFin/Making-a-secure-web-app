@@ -23,7 +23,8 @@ class Server
         # resource = request.get_location
         # post_users(request) if request.get_method == 'POST' && request.get_location
         # http_response = formulate_response(resource)
-        socket.print build_http_response(middleware.build_controller_name(request))
+        res = middleware.build_controller_name(request)
+        socket.print build_http_response(res)
         socket.close
       end
     end

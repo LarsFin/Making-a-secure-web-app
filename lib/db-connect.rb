@@ -1,8 +1,5 @@
 require 'pg'
 
-def insert table, command
-
-end
 
 def access_database command, &block
   connection = PG.connect(dbname: 'hackapp_test')

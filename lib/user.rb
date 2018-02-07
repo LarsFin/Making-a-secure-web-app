@@ -6,6 +6,6 @@ class User
   def initialize(params)
     @id = params[:id]
     @username = params[:username]
-  
   end
+  
 end

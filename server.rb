@@ -2,7 +2,7 @@ ENV['DB_ENV'] ||= 'development'
 require 'socket'
 require_relative './request'
 require 'pp'
-
+require_relative 'lib/db-connect'
 
 class Server
   def initialize(port = 3000)
@@ -12,9 +12,11 @@ class Server
   def run
     while(true) do
       Thread.start(@server.accept) do |socket|
-        request = Request.new(socket.recv(1024))
+        request = Request.new(socket.recv(4096))
+        request.generate_hashes
         pp(request)
-        resource = request.get_location()
+        resource = request.get_location
+        post_users(request) if request.get_method == 'POST' && request.get_location
         http_response = formulate_response(resource)
         socket.print http_response
         socket.close
@@ -23,6 +25,10 @@ class Server
   end
 
   private
+  def post_users(request)
+    p request.params
+    access_database("insert into users(username) values ('#{request.get_param('username')}')")
+  end
 
   def build_http_response(response)
     "HTTP/1.1 200 OK\r\n" +

@@ -16,8 +16,8 @@ class Server
         pp(request)
         resource = request.get_location
         post_users(request) if request.get_method == 'POST' && request.get_location
-        http_response = formulate_response(resource)
-        socket.print http_response
+        # http_response = formulate_response(resource)
+        socket.print formulate_response(resource)
         socket.close
       end
     end
@@ -32,16 +32,25 @@ class Server
   def build_http_response(response)
     "HTTP/1.1 200 OK\r\n" +
       "Connection: close\r\n" +
+      "Content-type: text/html\r\n" +
       "\r\n" +
       response
   end
 
+  def list_directory
+    list = Dir.entries(".")
+    newlist = []
+    list.each { |item| newlist << "<a href=./#{item}>#{item}</a>"}
+    newlist.join("<br>")
+  end
+
   def find_resource resource
-    File.read("public/sign-in.html") if resource == "/users/new"
+    return File.read("public/sign-in.html") if resource == "/users/new"
+    Dir.entries(".").include?(resource[1..-1]) ? File.read(resource[1..-1]) : nil
   end
 
   def formulate_response(resource)
-    response = "Hello World!" unless response = find_resource(resource)
+    response = list_directory unless response = find_resource(resource)
     build_http_response(response)
   end
 end

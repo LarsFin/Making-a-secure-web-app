@@ -12,9 +12,10 @@ describe DBModel do
     end
   end
 
-  describe "#read" do
-    it "can read from database" do
-
+  describe "reading from db" do
+    it "can find a specific record in database" do
+      expect(Object).to receive(:access_database).with "select * from testdbmodels where username = 'username';"
+      testdbmodel.find({'username': 'username'})
     end
   end
 end

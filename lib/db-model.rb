@@ -31,6 +31,12 @@ module DBModelClass
     end
   end
 
+  def all
+    access_database("select * from testdbmodels;") do |result|
+      result.map{ |record| self.new(record) }
+    end
+  end
+
   private
   def tablename
     self.to_s.downcase + "s"

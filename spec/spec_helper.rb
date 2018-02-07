@@ -1,3 +1,4 @@
+ENV['DB_ENV'] ||= 'test'
 require 'capybara/rspec'
 require 'db-connect'
 require_relative '../server.rb'

@@ -1,3 +1,4 @@
+ENV['DB_ENV'] ||= 'development'
 require 'socket'
 require_relative './request'
 require 'pp'

@@ -51,7 +51,7 @@ class Server
     if is_dir || resource == ''
       return list_directory(resource)
     else
-      return File.file?(resource) ? File.read(resource) : "Not found"
+      return File.file?(resource) ? File.read(resource) : "<h1>404 Error</h1><br>Page not found"
     end
   end
 

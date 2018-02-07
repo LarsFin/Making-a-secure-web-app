@@ -13,7 +13,7 @@ class Server
       Thread.start(@server.accept) do |socket|
         request = Request.new(socket.recv(4096))
         request.generate_hashes
-        pp(request)
+        #pp(request)
         resource = request.get_location
         post_users(request) if request.get_method == 'POST' && request.get_location
         # http_response = formulate_response(resource)
@@ -37,21 +37,28 @@ class Server
       response
   end
 
-  def list_directory
-    list = Dir.entries(".")
+  def list_directory(dir=".")
+    dir = '.' if dir == ''
+    list = Dir.entries(dir).sort
     newlist = []
-    list.each { |item| newlist << "<a href=./#{item}>#{item}</a>"}
+    list.each { |item| newlist << "<a href=/#{dir}/#{item}>#{item}</a>"}
     newlist.join("<br>")
   end
 
-  def find_resource resource
-    return File.read("public/sign-in.html") if resource == "/users/new"
-    Dir.entries(".").include?(resource[1..-1]) ? File.read(resource[1..-1]) : nil
+  def try_find_resource(resource)
+    resource = resource.sub(/^\/+/, "")
+    is_dir = File.directory?(resource)
+    if is_dir || resource == ''
+      return list_directory(resource)
+    else
+      return File.file?(resource) ? File.read(resource) : "Not found"
+    end
   end
 
   def formulate_response(resource)
-    response = list_directory unless response = find_resource(resource)
-    build_http_response(response)
+    res = try_find_resource(resource)
+    return build_http_response(res) if res
+    build_http_response(list_directory())
   end
 end
 

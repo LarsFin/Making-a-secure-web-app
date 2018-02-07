@@ -6,13 +6,17 @@ module DBModel
     base.extend DBModelClass
   end
 
-  def instance_methods
-    true
-  end
+  # def initialize(params)
+  #   properties.each do |property|
+  #     instance_variable_set "@#{property}", params[property.to_s]
+  #   end
+  # end
 
 end
 
+
 module DBModelClass
+
   def create(params)
     separate_params(params) do |keys, data|
       access_database("insert into #{tablename}(#{keys}) values(#{data});")
@@ -22,7 +26,9 @@ module DBModelClass
 
   def find(params)
     query = params.map{ |key, value| "#{key} = #{dbformat(value)}"}.join(" and ")
-    access_database("select * from #{tablename} where #{query};")
+    access_database("select * from #{tablename} where #{query};") do |result|
+      self.new(result[0])
+    end
   end
 
   private

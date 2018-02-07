@@ -3,7 +3,6 @@ require_relative 'db-connect'
 module DBModel
 
   def self.included(base)
-    # base.include DBConnect
     base.extend DBModelClass
   end
 
@@ -22,14 +21,17 @@ module DBModel
   def extract_attribute_to_string attribute
     var = attribute.to_s[1..-1].to_sym
     value = method(var).call
-    "#{var} = #{self.class.dbformat(value)}"
+    "#{var} = #{dbformat(value)}"
+  end
+private
+  def dbformat(param)
+    (param.is_a?(String)) ? "'#{param}'" : param.to_s
   end
 
 end
 
 
 module DBModelClass
-  # extend DBConnect
 
   def create(params)
     separate_params(params) do |keys, data|
@@ -39,8 +41,7 @@ module DBModelClass
   end
 
   def find(params)
-    query = params.map{ |key, value| "#{key} = #{dbformat(value)}"}.join(" and ")
-    DBConnect.access_database("select * from #{tablename} where #{query};") do |result|
+    DBConnect.access_database("select * from #{tablename} where #{query(params)};") do |result|
       self.new(result[0])
     end
   end
@@ -51,13 +52,21 @@ module DBModelClass
     end
   end
 
-  # private
+  def delete(params)
+    DBConnect.access_database("delete from #{tablename} where #{query(params)};")
+  end
+
   def tablename
     self.to_s.downcase + "s"
   end
 
+private
   def dbformat(param)
     (param.is_a?(String)) ? "'#{param}'" : param.to_s
+  end
+
+  def query params
+    params.map{ |key, value| "#{key} = #{dbformat(value)}"}.join(" and ")
   end
 
   def separate_params(params)

@@ -1,5 +1,14 @@
 require 'db-model'
 
+class TestDBModel
+  include DBModel
+  attr_accessor :id, :username
+  def initialize(params)
+    @id = params["id"]
+    @username = params["username"]
+  end
+end
+
 describe DBModel do
 
   subject(:testdbmodel) { TestDBModel }
@@ -49,15 +58,16 @@ describe DBModel do
   end
 
   describe "#delete" do
-
+    it "removes the specified record from the database table" do
+      expect(DBConnect).to receive(:access_database)
+        .with("delete from testdbmodels where id = 0;")
+      testdbmodel.delete({'id'=>0})
+    end
   end
-end
 
-class TestDBModel
-  include DBModel
-  attr_accessor :id, :username
-  def initialize(params)
-    @id = params["id"]
-    @username = params["username"]
+  describe "#tablename" do
+    it "returns the name of the table in the database corresponding to the model" do
+      expect(testdbmodel.tablename).to eq "testdbmodels"
+    end
   end
 end

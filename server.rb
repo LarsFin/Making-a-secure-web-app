@@ -23,9 +23,9 @@ class Server
         # resource = request.get_location
         # post_users(request) if request.get_method == 'POST' && request.get_location
         # http_response = formulate_response(resource)
-        res = middleware.build_controller_name(request)
-        
-        socket.print build_http_response(res)
+        res = middleware.get_response(request)
+
+        socket.print(p res.build)
         socket.close
       end
     end
@@ -39,13 +39,13 @@ class Server
   #   p "posted"
   # end
 
-  def build_http_response(response)
-    "HTTP/1.1 200 OK\r\n" +
-      "Connection: close\r\n" +
-      "Content-type: text/html\r\n" +
-      "\r\n" +
-      response
-  end
+  # def build_http_response(response, code = '200 OK')
+  #   "HTTP/1.1 #{code}\r\n" +
+  #     "Connection: close\r\n" +
+  #     "Content-type: text/html\r\n" +
+  #     "\r\n" +
+  #     response
+  # end
 
 
 

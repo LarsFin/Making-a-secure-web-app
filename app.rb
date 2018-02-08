@@ -16,7 +16,12 @@ class App
 
   def post_users request
     p User.create("username" => request.get_param("username"))
-    get_users(request)
+    redirect '/'
+  end
+
+  private
+  def redirect path
+    {location: path, code: "303 See Other"}
   end
 
 end

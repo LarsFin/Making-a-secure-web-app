@@ -28,13 +28,13 @@
   position: absolute;
   vertical-align: middle;
   left: 3%;
-  height: 50%;
+  top: 25%;
   margin: 0 auto;
   z-index: 5;
   color: blue;
   text-align: center;
   font-size: 5vw;
-  font-family: sans-serif;
+  font-family: 'Pacifico', Helvetica, sans-serif;
   font-weight: bold;
 }
 
@@ -68,7 +68,7 @@
   background-color: firebrick;
 }
 
-.form {
+.post-form-area {
   position: absolute;
   left: 0;
   right: 0;
@@ -76,6 +76,12 @@
   bottom: 0;
   z-index: 2;
   background-color: lime;
+}
+
+.post-form {
+  position: relative;
+  top: 10%;
+  left: 8%;
 }
 
 .container-a {
@@ -86,17 +92,23 @@
   background-color: gold;
 }
 
+.submit-post {
+  position: absolute;
+  right: 7vw;
+  bottom: 10%
+}
+
 .button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    background-color: none;
-    border: 4px solid gold;
+    background-color: white;
+    border: 0.1vw solid gold;
     color: pink;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
-    border-radius: 1.5vmin 1.5vmin;
+    font-size: 1vw;
+    border-radius: 0.75vw 0.75vw;
     padding: 0.4vmin;
     width: auto;
     height: auto;
@@ -109,8 +121,10 @@
 
 .nav-set {
   position: absolute;
-  left: 83%;
-  top: 3%;
+  float: right;
+  right: 3%;
+  /*left: 83%;*/
+  top: 15%;
   z-index: 5;
-  background-color: red;
+  background-color: none;
 }

@@ -11,9 +11,18 @@
           Hac-Man
         </div>
         <div id="nav-set" class="nav-set">
-          <a href="users/signout" class="button">Sign Out</a>
-          <a href="users/new" class="button">Sign Up</a>
-          <a href="users/1" class="button">Edit Profile</a>
+          <div id="nav-buttons" class="nav-buttons">
+            <a href="users/signout" class="button">Sign Out</a>
+            <a href="users/new" class="button">Sign Up</a>
+            <a href="users/1" class="button">Edit Profile</a>
+          </div>
+          <br>
+          <div id="search-bar" class="search-bar">
+            <form id="posts/search" action="posts/search">
+              <input id="search-query" type="search">
+              <input id="submit-query" style="font-size:0.75vw;back" class="button" type="submit" value="Search">
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -24,11 +33,12 @@
             <!-- Posts displayed in divs -->
           </div>
         </div>
-        <div id="post-form" class="form">
-          <form id="postform" action="/posts/new" method="post">
-            <textarea id="postinfo" style="resize: none;" rows="5" cols="40" placeholder="What's on your mind?"></textarea>
-            <br>
-            <input type="submit" value="Post" class="button">
+        <div id="post-form" class="post-form-area">
+          <form id="postform" action="/posts/new" method="post" class="post-form">
+            <textarea id="postinfo" style="resize: none;font-size:1vw;font-family:courier" rows="5" cols="60" placeholder="What's on your mind?"></textarea>
+            <div id="submit-post" class="submit-post">
+              <input type="submit" value="Post" class="button" style="font-size:1.5vw">
+            </div>
           </form>
         </div>
       </div>

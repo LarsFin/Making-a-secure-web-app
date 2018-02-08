@@ -160,7 +160,7 @@ body {
   float: right;
   right: 3%;
   /*left: 83%;*/
-  top: 15%;
+  top: 10%;
   z-index: 5;
   background-color: none;
 }
@@ -218,4 +218,15 @@ body {
   -webkit-box-shadow: 0 0 3vw red;
   -moz-box-shadow: 0 0 3vw red;
   box-shadow: 0 0 3vw red;
+}
+
+.current-user {
+  color: white;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  font-size: 1vw;
+  padding-bottom: 2%;
+}
+
+.search-bar {
+  padding-top: 4%;
 }

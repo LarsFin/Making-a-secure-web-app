@@ -17,13 +17,13 @@ module DBModel
       .map{ |var| extract_attribute_to_string(var) }.join(", ")
     DBConnect.access_database("update #{self.class.tablename} set #{data} where id = #{id};")
   end
-
+private
   def extract_attribute_to_string attribute
     var = attribute.to_s[1..-1].to_sym
     value = method(var).call
     "#{var} = #{dbformat(value)}"
   end
-private
+
   def dbformat(param)
     (param.is_a?(String)) ? "'#{param}'" : param.to_s
   end
@@ -47,7 +47,7 @@ module DBModelClass
   end
 
   def all
-    DBConnect.access_database("select * from testdbmodels;") do |result|
+    DBConnect.access_database("select * from #{tablename};") do |result|
       result.map{ |record| self.new(record) }
     end
   end

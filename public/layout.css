@@ -50,6 +50,14 @@ body {
   font-weight: bold;
 }
 
+.container-b {
+  position: relative;
+  height: 100%;
+  margin: 0 25%;
+  z-index: 1;
+  background-color: none;
+}
+
 .footer {
   position: fixed;
   align-content: center;
@@ -85,6 +93,24 @@ body {
   background-attachment: fixed;
 }
 
+.sign-in-box {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 15%;
+  bottom: 25%;
+  background-color: red;
+  border-radius: 0.75vw 0.75vw;
+}
+
+.sign-in-boxB {
+  position: relative;
+  height: 91.3%;
+  background-color: white;
+  border-radius: 0.75vw 6vw 0.75vw 6vw;
+  padding: 2vmin;
+}
+
 .feed-container {
   position: absolute;
   left: 0;
@@ -104,6 +130,19 @@ body {
   bottom: 0;
   z-index: 2;
   background-color: none;
+}
+
+.subtitle {
+  position: absolute;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  font-size: 4vw;
+  color: red;
+}
+
+.subtitle-box{
+  position: absolute;
+  left: 17%;
+  right: 0;
 }
 
 .post-form {
@@ -134,20 +173,20 @@ body {
 }
 
 .button {
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-    background-color: red;
-    border: 0.1vw solid white;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1vw;
-    font-family: 'Pacifico', Helvetica, sans-serif;
-    border-radius: 0.75vw 0.75vw;
-    padding: 0.4vmin;
-    width: auto;
-    height: auto;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: red;
+  border: 0.1vw solid white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1vw;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  border-radius: 0.75vw 0.75vw;
+  padding: 0.4vmin;
+  width: auto;
+  height: auto;
 }
 
 .button:hover {
@@ -203,6 +242,7 @@ body {
     transition-duration: 0.5s;
     background-color: white;
     color: red;
+    border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -212,6 +252,7 @@ body {
     padding: 0.4vmin;
     width: auto;
     height: auto;
+    outline: none;
 }
 
 .post-button:hover {
@@ -227,6 +268,37 @@ body {
   padding-bottom: 2%;
 }
 
+.auth-text {
+  font-family:'Pacifico', Helvetica, sans-serif;
+  font-size: 1.2vw;
+  color: red
+}
+
+.auth-submit-box {
+  position: absolute;
+  left: 33.5%;
+  top: 95%;
+}
+
 .search-bar {
   padding-top: 4%;
+}
+
+.sign-in-form-box {
+  position: absolute;
+  left: 20%;
+  top: 37%;
+  bottom: 20%;
+  right: 20%;
+}
+
+.sign-in-form-box input {
+  width: 100%;
+}
+
+.sign-in-form-box input[type="text"], input[type="password"] {
+  border: none;
+  outline: none;
+  font-size: 1vw;
+  border-bottom: 2px solid red;
 }

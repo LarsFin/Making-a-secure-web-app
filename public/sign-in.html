@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Scribble</title>
-    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="../public/layout.css">
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
   </head>
@@ -17,22 +17,24 @@
       <div id="container-b" class="container-b">
         <div id="sign-in-box" class="sign-in-box">
           <div id="sign-in-box" class="sign-in-boxB">
-            <div id="subtitle-box" class="subtitle-box" style="left:15%">
+            <div id="subtitle-box" class="subtitle-box">
               <div id="sign-in-title" class="subtitle">
-                Sign Up
+                Sign In
               </div>
             </div>
             <br>
             <div id="sign-in-form-box" class="sign-in-form-box">
               <form id="sign-in-form" action="/users" method="post">
-                <label class="auth-text" for="username">Username</label>
+                <label class="auth-text" for="username">Username</label>&nbsp;
+                <br>
                 <input id="username" type="text" name="username">
-                <label class="auth-text" for="password">Password</label>
+                <br>
+                <br>
+                <label class="auth-text" for="password">Password</label>&nbsp;
+                <br>
                 <input id="password" type="password" name="password">
-                <label class="auth-text" for="password-conf">Confirm password</label>
-                <input id="password-conf" type="password" name="password-conf">
-                <div class="auth-submit-box" style="top:105%">
-                  <button id="submit" form="sign-in-form" class="post-button" value="Sign Up">Sign Up</button>
+                <div class="auth-submit-box">
+                  <button id="submit" form="sign-in-form" class="post-button" value="Sign In">Sign In</button>
                 </div>
               </form>
             </div>

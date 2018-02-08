@@ -1,3 +1,13 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
+
 .wrapper {
   position: relative;
   top: 0;
@@ -14,6 +24,7 @@
   bottom: 85%;
   z-index: 0;
   background-color: red;
+  background-attachment: fixed;
 }
 
 .header {
@@ -28,10 +39,11 @@
   position: absolute;
   vertical-align: middle;
   left: 3%;
-  top: 25%;
+  bottom: 0;
+  float: bottom;
   margin: 0 auto;
   z-index: 5;
-  color: blue;
+  color: white;
   text-align: center;
   font-size: 5vw;
   font-family: 'Pacifico', Helvetica, sans-serif;
@@ -40,12 +52,21 @@
 
 .footer {
   position: fixed;
+  align-content: center;
   left: 0;
   right: 0;
   top: 92%;
   bottom: 0;
   z-index: 4;
-  background-color: purple;
+  background-color: red;
+}
+
+.copyright-tag {
+  position: absolute;
+  bottom: 0;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  color: white;
+  font-size: 0.9vw;
 }
 
 .centre-build {
@@ -55,7 +76,13 @@
   top: 15%;
   bottom: 8%;
   z-index: 0;
-  background-color: blue;
+  background-image: url('pencils.jpeg');
+  -webkit-backgorund-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .feed-container {
@@ -65,7 +92,8 @@
   top: 0;
   bottom: 20%;
   z-index: 2;
-  background-color: firebrick;
+  background-color: none;
+  overflow: scroll;
 }
 
 .post-form-area {
@@ -75,7 +103,7 @@
   top: 80%;
   bottom: 0;
   z-index: 2;
-  background-color: lime;
+  background-color: none;
 }
 
 .post-form {
@@ -86,10 +114,17 @@
 
 .container-a {
   position: relative;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
   height: 100%;
   margin: 0 25%;
   z-index: 1;
-  background-color: gold;
+  background-color: none;
+  opacity: 0.3;
+}
+
+.container-a:hover {
+  opacity: 1;
 }
 
 .submit-post {
@@ -99,15 +134,16 @@
 }
 
 .button {
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    background-color: white;
-    border: 0.1vw solid gold;
-    color: pink;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: red;
+    border: 0.1vw solid white;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1vw;
+    font-family: 'Pacifico', Helvetica, sans-serif;
     border-radius: 0.75vw 0.75vw;
     padding: 0.4vmin;
     width: auto;
@@ -115,8 +151,8 @@
 }
 
 .button:hover {
-  background-color: gold;
-  color: olive;
+  background-color: white;
+  color: red;
 }
 
 .nav-set {
@@ -127,4 +163,59 @@
   top: 15%;
   z-index: 5;
   background-color: none;
+}
+
+.post-container {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  border-radius: 1vw 1vw;
+  padding: 0.5vmin;
+  background-color: white;
+  margin: 1% 10%;
+}
+
+.post-container:hover {
+  -webkit-box-shadow: 0 0 0.4vw red;
+  -moz-box-shadow: 0 0 0.4vw red;
+  box-shadow: 0 0 0.4vw red;
+}
+
+.post-form-tb {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  outline: none;
+  resize: none;
+  font-size: 1.5vmin;
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  border-radius: 0.3vw 0.3vw;
+  padding: 0.5vmin;
+}
+
+.post-form-tb:hover {
+  -webkit-box-shadow: 0 0 2vw red;
+  -moz-box-shadow: 0 0 2vw red;
+  box-shadow: 0 0 2vw red;
+}
+
+.post-button {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: white;
+    color: red;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1vw;
+    font-family: 'Pacifico', Helvetica, sans-serif;
+    border-radius: 0.75vw 0.75vw;
+    padding: 0.4vmin;
+    width: auto;
+    height: auto;
+}
+
+.post-button:hover {
+  -webkit-box-shadow: 0 0 3vw red;
+  -moz-box-shadow: 0 0 3vw red;
+  box-shadow: 0 0 3vw red;
 }

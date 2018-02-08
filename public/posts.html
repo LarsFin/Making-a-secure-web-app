@@ -5,26 +5,32 @@
 </head>
 <body>
   <div id="page" class="wrapper">
-    <div id="header" class="header">
-      <div id="title" class="title">
-        <h1> Hac-Man </h1>
-      </div>
-      <div id="nav-set" class="nav-set">
-        <a href="users/new">Sign out</a>
+    <div id="header-wrap" class="header-wrap">
+      <div id="header" class="header">
+        <div id="title" class="title">
+          Hac-Man
+        </div>
+        <div id="nav-set" class="nav-set">
+          <a href="users/signout" class="button">Sign Out</a>
+          <a href="users/new" class="button">Sign Up</a>
+          <a href="users/1" class="button">Edit Profile</a>
+        </div>
       </div>
     </div>
     <div id="centre-build" class="centre-build">
-      <div id="feed-container" class="feed-container">
-        <div id="post-container" class="post-container">
-          <!-- Posts displayed in divs -->
+      <div id="post-area" class="container-a">
+        <div id="feed-container" class="feed-container">
+          <div id="post-container" class="post-container">
+            <!-- Posts displayed in divs -->
+          </div>
         </div>
-      </div>
-      <div class="form">
-        <form id="postform" action="/posts/new" method="post">
-          <textarea id="postinfo" style="resize: none;" rows="5" cols="40" placeholder="What's on your mind?"></textarea>
-          <br>
-          <input type="submit" value="Post">
-        </form>
+        <div id="post-form" class="form">
+          <form id="postform" action="/posts/new" method="post">
+            <textarea id="postinfo" style="resize: none;" rows="5" cols="40" placeholder="What's on your mind?"></textarea>
+            <br>
+            <input type="submit" value="Post" class="button">
+          </form>
+        </div>
       </div>
     </div>
     <div id="footer" class="footer">

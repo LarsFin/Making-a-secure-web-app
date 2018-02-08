@@ -1,0 +1,42 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: blue;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 85%;
+  z-index: 4;
+  background-color: red;
+}
+
+.title {
+  position: fixed;
+  left: 3%;
+  top: -3%;
+  z-index: 5;
+  color: blue;
+  font-size: 48px;
+  font-family: sans-serif;
+}
+
+.footer {
+
+}
+
+.centre-build {
+
+}
+
+.feed-container {
+
+}
+
+.

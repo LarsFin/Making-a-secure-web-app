@@ -2,6 +2,10 @@ require_relative './lib/user'
 
 class App
 
+  def get_homepage request
+    "Welcome"
+  end
+
   def get_users request
     "Hello World!"
   end

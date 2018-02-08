@@ -1,4 +1,9 @@
-feature "Server functions" do
+feature "Served pages" do
+
+	scenario "homepage" do
+		visit '/'
+		expect(page).to have_content 'Welcome'
+	end
 
   scenario "Displays 'Hello World!'" do
     visit '/users'
@@ -10,4 +15,30 @@ feature "Server functions" do
   	visit '/users/new'
   	expect(page).to have_content 'Sign up'
   end
+
+	scenario "user signs up- redirects to welcome" do
+  	visit '/users/new'
+  	fill_in 'username', with: 'Tester'
+  	click_on 'submit'
+  	expect(page).to have_content "Welcome"
+  end
+
+	scenario "user is welcomed after registration" do
+		visit '/users/new'
+		fill_in 'username', with: 'Tester'
+		click_on 'submit'
+		expect(page).to have_content "Welcome Tester"
+	end
+
+  scenario "User visits non-existant page" do
+  	visit '/bloopers'
+  	expect(page).to have_content '404 Error Page not found'
+  end
+end
+feature "Served files" do
+
+	scenario "request a public file" do
+		visit'/public/sign-in.html'
+		expect(page).to have_content "Sign up"
+	end
 end

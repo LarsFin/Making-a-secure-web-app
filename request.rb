@@ -5,7 +5,6 @@ class Request
     @text_arr = text.split("\r\n")
     @hash = Hash.new()
     @params = Hash.new()
-    p 'end constructor'
   end
 
   def generate_hashes
@@ -23,6 +22,16 @@ class Request
 
   def get_param(param)
     return params[param]
+  end
+
+  def get_cookie(key)
+    p hash["Cookie"]
+    cookie_hash = hash["Cookie"].split(";").map{|cookie| cookie.split("=")}.to_h
+    return cookie_hash[key]
+  end
+
+  def has_cookie?
+    !!hash["Cookie"]
   end
 
   private

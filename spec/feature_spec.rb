@@ -16,12 +16,19 @@ feature "Served pages" do
   	expect(page).to have_content 'Sign up'
   end
 
-  scenario "user signs up- redirects to welcome" do
+	scenario "user signs up- redirects to welcome" do
   	visit '/users/new'
   	fill_in 'username', with: 'Tester'
   	click_on 'submit'
   	expect(page).to have_content "Welcome"
   end
+
+	scenario "user is welcomed after registration" do
+		visit '/users/new'
+		fill_in 'username', with: 'Tester'
+		click_on 'submit'
+		expect(page).to have_content "Welcome Tester"
+	end
 
   scenario "User visits non-existant page" do
   	visit '/bloopers'

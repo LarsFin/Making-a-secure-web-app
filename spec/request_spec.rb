@@ -17,4 +17,17 @@ describe Request do
     expect(@request.get_param("password")).to eq("testpassword")
   end
 
+  describe("#has_cookie?") do
+    it "returns false if it does not have a cookie" do
+      expect(@request.has_cookie?).to be(false)
+    end
+  end
+
+  describe("#get_cookie") do
+    it "returns the key of a stored cookie" do
+      request = Request.new("GET testlocation\r\nCookie: a=b\r\n")
+      request.generate_hashes
+      expect(request.get_cookie("a")).to eq("b")
+    end
+  end
 end

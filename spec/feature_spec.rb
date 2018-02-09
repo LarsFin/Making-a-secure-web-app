@@ -13,7 +13,7 @@ feature "Served pages" do
 
   scenario "Displays a sign up page" do
   	visit '/users/new'
-  	expect(page).to have_content 'Sign up'
+  	expect(page).to have_content 'Sign Up'
   end
 
 	scenario "user signs up- redirects to welcome" do
@@ -38,7 +38,7 @@ end
 feature "Served files" do
 
 	scenario "request a public file" do
-		visit'/public/sign-in.html'
-		expect(page).to have_content "Sign up"
+		visit'/public/sign-up.html'
+		expect(page).to have_content "Sign Up"
 	end
 end

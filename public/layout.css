@@ -1,0 +1,305 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
+
+.wrapper {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.header-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 85%;
+  z-index: 0;
+  background-color: red;
+  background-attachment: fixed;
+}
+
+.header {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  background-color: red;
+}
+
+.title {
+  position: absolute;
+  vertical-align: middle;
+  left: 3%;
+  bottom: 0;
+  float: bottom;
+  margin: 0 auto;
+  z-index: 5;
+  color: white;
+  text-align: center;
+  font-size: 5vw;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.container-b {
+  position: relative;
+  height: 100%;
+  margin: 0 25%;
+  z-index: 1;
+  background-color: none;
+}
+
+.footer {
+  position: fixed;
+  align-content: center;
+  left: 0;
+  right: 0;
+  top: 92%;
+  bottom: 0;
+  z-index: 4;
+  background-color: red;
+}
+
+.copyright-tag {
+  position: absolute;
+  bottom: 0;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  color: white;
+  font-size: 0.9vw;
+}
+
+.centre-build {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 15%;
+  bottom: 8%;
+  z-index: 0;
+  background-image: url('pencils.jpeg');
+  -webkit-backgorund-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.sign-in-box {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 15%;
+  bottom: 25%;
+  background-color: red;
+  opacity: 0.9;
+  border-radius: 0.75vw 0.75vw;
+}
+
+.sign-in-boxB {
+  position: relative;
+  height: 91.3%;
+  background-color: white;
+  border-radius: 0.75vw 6vw 0.75vw 6vw;
+  padding: 2vmin;
+}
+
+.feed-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 20%;
+  z-index: 2;
+  background-color: none;
+  overflow: scroll;
+}
+
+.post-form-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80%;
+  bottom: 0;
+  z-index: 2;
+  background-color: none;
+}
+
+.subtitle {
+  position: absolute;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  font-size: 4vw;
+  color: red;
+}
+
+.subtitle-box{
+  position: absolute;
+  left: 17%;
+  right: 0;
+}
+
+.post-form {
+  position: relative;
+  top: 10%;
+  left: 8%;
+}
+
+.container-a {
+  position: relative;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  height: 100%;
+  margin: 0 25%;
+  z-index: 1;
+  background-color: none;
+  opacity: 0.3;
+}
+
+.container-a:hover {
+  opacity: 1;
+}
+
+.submit-post {
+  position: absolute;
+  right: 7vw;
+  bottom: 10%
+}
+
+.button {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: red;
+  border: 0.1vw solid white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1vw;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  border-radius: 0.75vw 0.75vw;
+  padding: 0.4vmin;
+  width: auto;
+  height: auto;
+}
+
+.button:hover {
+  background-color: white;
+  color: red;
+}
+
+.nav-set {
+  position: absolute;
+  float: right;
+  right: 3%;
+  /*left: 83%;*/
+  top: 10%;
+  z-index: 5;
+  background-color: none;
+}
+
+.post-container {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  border-radius: 1vw 1vw;
+  padding: 0.5vmin;
+  background-color: white;
+  margin: 1% 10%;
+}
+
+.post-container:hover {
+  -webkit-box-shadow: 0 0 0.4vw red;
+  -moz-box-shadow: 0 0 0.4vw red;
+  box-shadow: 0 0 0.4vw red;
+}
+
+.post-form-tb {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  outline: none;
+  resize: none;
+  font-size: 1.5vmin;
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  border-radius: 0.3vw 0.3vw;
+  padding: 0.5vmin;
+}
+
+.post-form-tb:hover {
+  -webkit-box-shadow: 0 0 2vw red;
+  -moz-box-shadow: 0 0 2vw red;
+  box-shadow: 0 0 2vw red;
+}
+
+.post-button {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: white;
+    color: red;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1vw;
+    font-family: 'Pacifico', Helvetica, sans-serif;
+    border-radius: 0.75vw 0.75vw;
+    padding: 0.4vmin;
+    width: auto;
+    height: auto;
+    outline: none;
+}
+
+.post-button:hover {
+  -webkit-box-shadow: 0 0 3vw red;
+  -moz-box-shadow: 0 0 3vw red;
+  box-shadow: 0 0 3vw red;
+}
+
+.current-user {
+  color: white;
+  font-family: 'Pacifico', Helvetica, sans-serif;
+  font-size: 1vw;
+  padding-bottom: 2%;
+}
+
+.auth-text {
+  font-family:'Pacifico', Helvetica, sans-serif;
+  font-size: 1.2vw;
+  color: red
+}
+
+.auth-submit-box {
+  position: absolute;
+  left: 33.5%;
+  top: 95%;
+}
+
+.search-bar {
+  padding-top: 4%;
+}
+
+.sign-in-form-box {
+  position: absolute;
+  left: 20%;
+  top: 37%;
+  bottom: 20%;
+  right: 20%;
+}
+
+.sign-in-form-box input {
+  width: 100%;
+}
+
+.sign-in-form-box input[type="text"], input[type="password"] {
+  border: none;
+  outline: none;
+  font-size: 1vw;
+  border-bottom: 2px solid red;
+}

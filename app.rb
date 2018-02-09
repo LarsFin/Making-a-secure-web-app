@@ -12,7 +12,7 @@ class App
   end
 
   def get_users_new request
-    File.read("public/sign-in.html")
+    File.read("public/sign-up.html")
   end
 
   def get_login request

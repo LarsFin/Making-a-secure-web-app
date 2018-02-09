@@ -1,6 +1,7 @@
 require_relative './lib/user'
 
 class App
+  include templating_engine
 
   def get_homepage request
     username = current_user(request).username if current_user(request)

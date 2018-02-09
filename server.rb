@@ -15,6 +15,8 @@ class Server
   end
 
   def run
+    puts "Booting up the server.."
+    puts "Server booted!"
     while(true) do
       Thread.start(@server.accept) do |socket|
         request = Request.new(socket.recv(4096))

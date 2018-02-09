@@ -15,6 +15,16 @@ class App
     File.read("public/sign-in.html")
   end
 
+  def get_login request
+    "Login page"
+  end
+
+  def post_login request
+    user = User.find("username" => request.get_param("username"))
+    login user, redirect('/') if user
+  end
+
+
   def post_users request
     user = User.create("username" => request.get_param("username"))
     login user, redirect('/')

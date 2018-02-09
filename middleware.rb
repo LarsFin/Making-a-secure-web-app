@@ -40,19 +40,21 @@ class Middleware
      res = app.public_send(method, request)
      return (res.is_a? Hash) ? res : {text: res}
     else
-     try_find_resource(request.get_location)
+     return try_find_resource(request.get_location)
     end
   end
 
   def list_directory(dir=".")
+    p "In list directory"
     dir = '.' if dir == ''
     list = Dir.entries(dir).sort
     newlist = []
     list.each { |item| newlist << "<a href=/#{dir}/#{item}>#{item}</a>"}
-    newlist.join("<br>")
+    {text: newlist.join("<br>")}
   end
 
   def try_find_resource(resource)
+    p "In try find resource"
     resource = resource.sub(/^\/+/, "")
     is_dir = File.directory?(resource)
     if is_dir || resource == ''
